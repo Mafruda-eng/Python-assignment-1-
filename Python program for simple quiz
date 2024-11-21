@@ -1,0 +1,33 @@
+def simple_quiz():
+    questions = {
+        "What is your name? ": "Mafruda",
+        "What's the smallest country in the world ? ": "The Vatican",
+        "Who invented the World Wide Web, and when? ": "Tim Berners-Lee, 1990",
+        "Who is the father of python? ": "Guido van Rossum",
+        "Who is the father of C++?": "Bjarne Stroustrup"
+    }
+
+    points_per_correct = 5
+    points_per_incorrect = -2
+    total_possible_score = len(questions) * points_per_correct
+    passing_score = total_possible_score * 0.6
+
+    score = 0
+
+    print("Welcome to the Quiz! Answer the following questions:")
+    for question, correct_answer in questions.items():
+        user_answer = input(question).strip().capitalize()
+        if user_answer == correct_answer.capitalize():
+            print("Correct!")
+            score += points_per_correct
+        else:
+            print(f"Incorrect! The correct answer was: {correct_answer}.")
+            score += points_per_incorrect
+
+    print(f"\nYour total score is: {score}/{total_possible_score}")
+    if score >= passing_score:
+        print("Congratulations! You passed the quiz!")
+    else:
+        print("Sorry, you failed the quiz. Better luck next time!")
+
+simple_quiz()
